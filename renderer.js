@@ -5,7 +5,4 @@
 // selectively enable features needed in the rendering
 // process.
 
-const {Gui} = require('electrongui')
-let gui = new Gui() //Create the base gui structure
-gui.alerts.add('Gui initialized!!!', 'warning') //this message should appear in the footer
-
+const {ipcRenderer} = require('electron')

@@ -1,6 +1,8 @@
 // Modules to control application life and create native browser window
-const {app, BrowserWindow} = require('electron')
+const {app, BrowserWindow, ipcMain} = require('electron')
+const { menu, Menu } = require('./menu') 
 const path = require('path')
+const isWindows = process.platform === "win32";
 
 function createWindow () {
   // Create the browser window.
@@ -11,14 +13,25 @@ function createWindow () {
       preload: path.join(__dirname, 'preload.js'),
       nodeIntegration: true,
       enableRemoteModule: true,
-    }
-  })
+    },
+    frame: false
+  });
 
   // and load the index.html of the app.
   mainWindow.loadFile('index.html')
 
   // Open the DevTools.
   // mainWindow.webContents.openDevTools()
+
+  ipcMain.on(`display-app-menu`, function(e, args) {
+    if (isWindows && mainWindow) {
+      menu.popup({
+        window: mainWindow,
+        x: args.x,
+        y: args.y
+      });
+    }
+  });
 }
 
 // This method will be called when Electron has finished
@@ -34,6 +47,8 @@ app.whenReady().then(() => {
   })
 })
 
+
+
 // Quit when all windows are closed, except on macOS. There, it's common
 // for applications and their menu bar to stay active until the user quits
 // explicitly with Cmd + Q.
@@ -43,3 +58,5 @@ app.on('window-all-closed', function () {
 
 // In this file you can include the rest of your app's specific main process
 // code. You can also put them in separate files and require them here.
+
+
