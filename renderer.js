@@ -4,6 +4,16 @@
 // `nodeIntegration` is turned off. Use `preload.js` to
 // selectively enable features needed in the rendering
 // process.
-const {Gui} = require('electrongui')
-let gui = new Gui() // create the base gui structure
-gui.alerts.add('Gui initialized!!!','warning') //this message should appear in the footer
+
+
+import Header from './Components/Header/Header'
+
+function App() {
+  return (
+    <div className="App">
+        <Header />
+    </div>
+  );
+}
+
+export default App;
