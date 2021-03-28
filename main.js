@@ -13,12 +13,12 @@ function createWindow () {
       preload: path.join(__dirname, 'preload.js'),
       nodeIntegration: true,
       enableRemoteModule: true,
-    },
-    frame: false
-  });
+
+    }
+  })
 
   // and load the index.html of the app.
-  mainWindow.loadFile('index.html')
+  win.loadURL('http://localhost:3000/')
 
   // Open the DevTools.
   // mainWindow.webContents.openDevTools()
