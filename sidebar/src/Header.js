@@ -1,6 +1,6 @@
 
 //import useState hook to create menu collapse state
-import React, {Component} from "react";
+import React, {useState} from "react";
 
 //import react pro sidebar components
 import {
@@ -33,14 +33,7 @@ const Header = () => {
     //condition checking to change state from true to false and vice versa
     menuCollapse ? setMenuCollapse(false) : setMenuCollapse(true);
   };
-}
-  class Header extends Component{
 
-
-    render(){
-  
-      const {notes, changeCurrentNote, deletenote} = this.props
-  
     return (
       <>
         <div id="header">
@@ -80,6 +73,6 @@ const Header = () => {
         </div>
       </>
     );
-  }
-}
+  };
+
 export default Header;
