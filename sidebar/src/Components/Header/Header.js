@@ -1,6 +1,6 @@
 
 //import useState hook to create menu collapse state
-import React, {useState} from "react";
+import React, { useState } from "react";
 
 //import react pro sidebar components
 import {
@@ -60,7 +60,7 @@ const Header = () => {
                   {note.heading}
 
                 </li>
-                <button className='delete-note' onClick={ () => deletenote(note)}>X</button>
+                <button className='delete-note' onClick={ () => deletenote(note)}>x</button>
                 </div>
               )) }
             </SidebarContent>
