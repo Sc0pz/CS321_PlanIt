@@ -5,9 +5,9 @@ import Note from './Note'
 import ListNotes from './ListNotes'
 import './App.css';
 
-const notesArray= [{id: 1, heading:'Note Uno', value:'This is a note'},
-              {id: 2, heading:'Note Dos', value:'This is another note'},
-              {id: 3, heading:'Note Tres', value:'This is the third note'}]
+const notesArray= [{id: 1, heading:'Subject 1', value:'This is a note'},
+              {id: 2, heading:'Subject 2', value:'This is another note'},
+              {id: 3, heading:'Subject 3', value:'This is the third note'}]
 
 class App extends Component {
 
