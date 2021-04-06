@@ -57,6 +57,9 @@ class App extends Component {
       this.state.notes.sort((a, b) => {return b.id-a.id})
     return (
       <div className="App">
+      <Header>
+        <ListNotes notes={this.state.notes} changeCurrentNote={this.changeCurrentNote} deletenote={this.deletenote}/>
+      </Header> 
       <button className='add-note' onClick={this.addNew}>+</button>
         <div className='notes-wrapper'>
         <div className='list-notes-top'>
