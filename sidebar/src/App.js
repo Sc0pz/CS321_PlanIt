@@ -1,4 +1,4 @@
-import Header from './Header'
+import Header from './Components/Header/Header'
 
 import React, { Component } from 'react';
 import Note from './Note'
