@@ -1,6 +1,6 @@
 
 //import useState hook to create menu collapse state
-import React, { useState } from "react";
+import React, {Component} from "react";
 
 //import react pro sidebar components
 import {
@@ -55,12 +55,15 @@ const Header = () => {
            </div>
           </SidebarHeader>
           <SidebarContent>
-            <Menu iconShape="square">
-              <MenuItem >Math</MenuItem>
-              <MenuItem >English</MenuItem>
-              <MenuItem >Science</MenuItem>
-              <MenuItem >History</MenuItem>
-            </Menu>
+            { notes.map((note) => (
+              <div  className='list-item-top' key={ note.id }>
+              <li className='list-item' onClick={ () => changeCurrentNote(note) } >
+                {note.heading}
+
+              </li>
+              <button className='delete-note' onClick={ () => deletenote(note)}>X</button>
+              </div>
+            )) }
           </SidebarContent>
           <SidebarFooter>
             <Menu iconShape="square">

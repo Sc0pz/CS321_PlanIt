@@ -77,10 +77,23 @@ html {}
 }
 
 .delete-note{
-
-  position: absolute;
+  display:inline-block;
+  padding:0.5, 3;
+  border:0.16 solid #FFFFFF;
+  margin:0 0.3, 0.3, 0;
+  box-sizing: border-box;
+  text-decoration:none;
+  text-transform:uppercase;
+  font-family:'Roboto',sans-serif;
+  font-weight:400;
+  color:#FFFFFF;
+  text-align:center;
+  transition: all 0.15s;
 }
-
+.delete-note:hover{
+  color:#DDDDDD;
+  border-color:#DDDDDD;
+}
 .add-note, .delete-note{
 
   border-radius: 50%;
@@ -101,7 +114,7 @@ input[type='text']{
   width: 90%;
   border: none;
   resize: none;
-  color: black;
+  color: rgb(0, 0, 0);
   font-size: 25px;
 
 }
