@@ -1,4 +1,3 @@
-
 //import useState hook to create menu collapse state
 import React, {useState} from "react";
 
@@ -24,7 +23,7 @@ import "react-pro-sidebar/dist/css/styles.css";
 import "./Header.css";
 
 
-const Header = () => {
+const Header = ({props}) => {
   
     //create initial menuCollapse state using useState hook
     const [menuCollapse, setMenuCollapse] = useState(false)
@@ -33,7 +32,7 @@ const Header = () => {
     //condition checking to change state from true to false and vice versa
     menuCollapse ? setMenuCollapse(false) : setMenuCollapse(true);
   };
-
+    const {notes, changeCurrentNote, deletenote} = this.props;
     return (
       <>
         <div id="header">
@@ -54,6 +53,8 @@ const Header = () => {
             </div>
             </SidebarHeader>
             <SidebarContent>
+              <Menu iconShape="square">
+              <MenuItem>
               { notes.map((note) => (
                 <div  className='list-item-top' key={ note.id }>
                 <li className='list-item' onClick={ () => changeCurrentNote(note) } >
@@ -63,6 +64,8 @@ const Header = () => {
                 <button className='delete-note' onClick={ () => deletenote(note)}>X</button>
                 </div>
               )) }
+              </MenuItem>
+              </Menu>
             </SidebarContent>
             <SidebarFooter>
               <Menu iconShape="square">
