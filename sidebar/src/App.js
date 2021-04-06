@@ -5,7 +5,9 @@ import Note from './Note'
 import ListNotes from './ListNotes'
 import './App.css';
 
+
 const notesArray= [{id: 1, heading:'Empty Note', value:''}]
+
 
 class App extends Component {
 
