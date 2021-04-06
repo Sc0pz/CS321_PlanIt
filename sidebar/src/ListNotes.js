@@ -1,5 +1,6 @@
 import React, {Component} from 'react'
-
+import { ProSidebar, Menu, MenuItem, SubMenu } from 'react-pro-sidebar';
+import 'react-pro-sidebar/dist/css/styles.css';
 
 class ListNotes extends Component{
 
@@ -10,18 +11,23 @@ class ListNotes extends Component{
 return(
 
 
-    <ul className='list-notes'>
-      { notes.map((note) => (
-        <div  className='list-item-top' key={ note.id }>
-          <li className='list-item' onClick={ () => changeCurrentNote(note) } >
-            {note.heading}
-
-          </li>
-          <button className='delete-note' onClick={ () => deletenote(note)}>X</button>
-          </div>
-
-      )) }
-    </ul>
+    <ProSidebar>
+      <Menu iconShape="circle">
+        <SubMenu title="Notes">
+          { notes.map((note) => (
+          <MenuItem>
+            <div  className='list-item-top' key={ note.id }>
+              <li className='list-item' onClick={ () => changeCurrentNote(note) } >
+                <div>{note.heading}</div>
+                <button className='delete-note' onClick={ () => deletenote(note)}>x</button>
+              </li>
+              
+              </div>
+          </MenuItem>
+          )) }
+      </SubMenu>
+      </Menu>
+    </ProSidebar>
 )
 }
 }

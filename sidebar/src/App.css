@@ -67,6 +67,7 @@ html, body, .note-wrapper-single
   height: 30px;
   display: inline-flex;
   width: 90%;
+  word-wrap:break-word;
 }
 
 .delete-note{
