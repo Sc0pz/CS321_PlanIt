@@ -1,8 +1,6 @@
 // Modules to control application life and create native browser window
-const {app, BrowserWindow, ipcMain} = require('electron')
-const { menu, Menu } = require('./menu') 
+const {app, BrowserWindow} = require('electron')
 const path = require('path')
-const isWindows = process.platform === "win32";
 
 function createWindow () {
   
@@ -24,16 +22,6 @@ function createWindow () {
 
   // Open the DevTools.
   // mainWindow.webContents.openDevTools()
-
-  ipcMain.on(`display-app-menu`, function(e, args) {
-    if (isWindows && mainWindow) {
-      menu.popup({
-        window: mainWindow,
-        x: args.x,
-        y: args.y
-      });
-    }
-  });
 }
 
 // This method will be called when Electron has finished
