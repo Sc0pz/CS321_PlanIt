@@ -5,16 +5,18 @@ const path = require('path')
 const isWindows = process.platform === "win32";
 
 function createWindow () {
+  
   // Create the browser window.
   const mainWindow = new BrowserWindow({
-    width: 800,
+    width: 1000,
     height: 600,
     webPreferences: {
       preload: path.join(__dirname, 'preload.js'),
       nodeIntegration: true,
       enableRemoteModule: true,
-
-    }
+    },
+    frame:false,
+    resizable:false
   })
 
   // and load the index.html of the app.

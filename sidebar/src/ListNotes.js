@@ -16,12 +16,17 @@ return(
         <SubMenu title="Notes">
           { notes.map((note) => (
           <MenuItem>
-            <div  className='list-item-top' key={ note.id }>
-              <li className='list-item' onClick={ () => changeCurrentNote(note) } >
-                <div>{note.heading}</div>
-                <button className='delete-note' onClick={ () => deletenote(note)}>x</button>
-              </li>
-              
+            <div className='list-item-top' key={ note.id }>
+              <div>
+              <ul className="no-bullets">
+                <li className='list-item' onClick={ () => changeCurrentNote(note) } >
+                  {note.heading}
+                </li>
+              </ul>
+              </div>
+              <div>
+                <button className='delete-note' onClick={ () => deletenote(note)}>Delete</button>
+                </div>
               </div>
           </MenuItem>
           )) }

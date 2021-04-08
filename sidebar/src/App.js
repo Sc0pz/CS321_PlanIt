@@ -6,7 +6,7 @@ import ListNotes from './ListNotes'
 import './App.css';
 
 
-const notesArray= [{id: 1, heading:'Empty Note', value:''}]
+const notesArray= [{id: 1, heading:'Untitled Note', value:''}]
 
 
 class App extends Component {
@@ -25,10 +25,8 @@ class App extends Component {
 
   deletenote = (note) =>{
 
-
     this.setState((state) => ({ notes: state.notes.filter(noteIterator => (noteIterator.id !== note.id)) }))
     this.setState({ currentNote: null })
-
 
   }
 
@@ -41,33 +39,29 @@ class App extends Component {
 
   addNew = () =>{
 
-
-
-    const note = {id: this.state.notes.length + 1, heading: '', value: ' '}
+    const note = {id: this.state.notes.length + 1, heading: 'Untitled Note', value: ''}
     this.setState((state) => ({ notes: state.notes.concat([note]) }))
     this.setState({ currentNote: note })
-
-
 
   }
 
   render() {
 
-
     this.state.notes.sort((a, b) => {return b.id-a.id})
+
   return (
     <div className="App">
-    <button className='add-note' onClick={this.addNew}>+</button>
+      <div>
+      <button className='add-note' onClick={this.addNew}>Add New</button>
+      </div>
       <div className='notes-wrapper'>
-      <div className='list-notes-top'>
-        <ListNotes notes={this.state.notes} changeCurrentNote={this.changeCurrentNote} deletenote={this.deletenote}/>
+        <div className='list-notes-top'>
+          <ListNotes notes={this.state.notes} changeCurrentNote={this.changeCurrentNote} deletenote={this.deletenote}/>
+        </div>
+        <div className='current-note'>
+          {( this.state.currentNote !== null ) && ( <Note note={this.state.currentNote} savenote={this.saveNote}/> )}
+        </div>
       </div>
-      <div className='current-note'>
-      {( this.state.currentNote !== null ) && ( <Note note={this.state.currentNote} savenote={this.saveNote}/> )}
-      </div>
-
-      </div>
-
     </div>
   );
 }
