@@ -1,8 +1,10 @@
-html {} 
+html {
+  background-color: #222;
+} 
 
-.body 
-{
-  background-color: aquamarine;  
+
+div {
+  background-color: #222;
 }
 
 .note-wrapper-single
@@ -12,7 +14,7 @@ html {}
 
 .App {
   height: 100%;
-  text-align: center;
+  
 }
 
 .App-logo {
@@ -38,14 +40,15 @@ html {}
 .notes-wrapper{
 
   display: flex;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
   width: 100%;
   height: 100%;
+  text-align:center;
 }
 
 .list-notes-top{
   height: 100%;
-  width: 30%;
+  width: 24%;
   padding: 0;
   overflow-y: auto;
   overflow-x: hidden;
@@ -55,16 +58,14 @@ html {}
 .current-note{
 
   height: 100%;
-  width: 68%;
-
-
+  width: 100%;
 
 }
 
 .list-item-top{
-
-  border-bottom: 1px solid black;
   text-align: left;
+  overflow: hidden;
+  white-space: nowrap;
 }
 
 .list-item{
@@ -73,57 +74,81 @@ html {}
   text-align: left;
   height: 30px;
   display: inline-flex;
-  width: 90%;
-  word-wrap:break-word;
+  flex-wrap:auto;
+  width: 100%;
+  overflow: hidden;
 }
 
-.delete-note{
-  display:inline-block;
-  padding:0.5, 3;
-  border:0.16 solid #FFFFFF;
-  margin:0 0.3, 0.3, 0;
-  box-sizing: border-box;
-  text-decoration:none;
-  text-transform:uppercase;
-  font-family:'Roboto',sans-serif;
-  font-weight:400;
-  color:#FFFFFF;
-  text-align:center;
-  transition: all 0.15s;
-}
-.delete-note:hover{
-  color:#DDDDDD;
-  border-color:#DDDDDD;
-}
 .add-note, .delete-note{
-
-  border-radius: 50%;
-  float: right;
-
-
-
+  -webkit-transition: box-shadow 300ms ease-in-out, color 300ms ease-in-out;
+  transition: box-shadow 300ms ease-in-out, color 300ms ease-in-out;
+  box-sizing: border-box;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  background-color: transparent;
+  
+  border-radius: 0.6em;
+  cursor: pointer;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-self: center;
+      -ms-flex-item-align: center;
+          align-self: center;
+  font-size: .8rem;
+  font-weight: 400;
+  line-height: 1;
+  margin: 10px;
+  padding: 1.0em 1.0em;
+  text-decoration: none;
+  text-align: center;
+  text-transform: uppercase;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+}
+ul.no-bullets {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+.delete-note {
+  border: 2px solid #e74c3c;
+  color: #e74c3c;
+  font-size: 0.6rem;
+  padding: 1.0em 1.5em;
+}
+.delete-note:hover {
+  box-shadow: 0 0 40px 40px #e74c3c inset;
+  color: #ffffff;
 }
 
+.add-note:hover{ 
+  box-shadow: 0 0 40px 40px rgb(52, 82, 255) inset;
+  color:rgb(255, 255, 255)
+}
 .add-note{
-  margin: 20px 440px 10px;
-  
+  margin: 10px 20px 10px;
+  border: 2px solid rgb(52, 82, 255);
+  color: rgb(65, 93, 255);
 }
 
 input[type='text']{
-
-  height: 30px;
-  width: 90%;
+  background-color: #ebebeb;
+  height: 40px;
+  width: 95%;
   border: none;
   resize: none;
   color: rgb(0, 0, 0);
-  font-size: 25px;
+  font-size: 24px;
 
 }
 
 textarea{
-
-  height: 405px;
-  width: 90%;
+  background-color: #ebebeb;
+  height: 600px;
+  width: 95%;
   border: none;
   resize: none;
   scroll-behavior: auto;
@@ -135,3 +160,68 @@ textarea{
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }
+.pro-sidebar {
+  height: 100vh;
+}
+.closemenu {
+  color: #000;
+  position: absolute;
+  right: 0;
+  z-index: 9999;
+  line-height: 20px;
+  border-radius: 50%;
+  font-weight: bold;
+  font-size: 22px;
+  top: 55px;
+  cursor: pointer;
+}
+.pro-sidebar {
+  width: 100%;
+  min-width: 100%;
+}
+.pro-sidebar.collapsed {
+  width: 80px;
+  min-width: 80px;
+}
+.pro-sidebar-inner {
+  background-color: white;
+  box-shadow: 0.5px 0.866px 2px 0px rgba(0, 0, 0, 0.15);
+}
+.pro-sidebar-inner .pro-sidebar-layout {
+  overflow-y: hidden;
+}
+.pro-sidebar-inner .pro-sidebar-layout .logotext p {
+  font-size: 20px;
+  padding: 0 20px;
+  color: #000;
+  font-weight: bold;
+}
+.pro-sidebar-inner .pro-sidebar-layout ul {
+  padding: 0 5px;
+}
+.pro-sidebar-inner .pro-sidebar-layout ul .pro-inner-item {
+  color: rgb(255, 255, 255);
+  margin: 10px 0px;
+  font-weight: bold;
+}
+.pro-sidebar-inner .pro-sidebar-layout ul .pro-inner-item .pro-icon-wrapper {
+  background-color: #fbf4cd;
+  color: #000;
+  border-radius: 3px;
+}
+.pro-sidebar-inner .pro-sidebar-layout ul .pro-inner-item .pro-icon-wrapper .pro-item-content {
+  color: #000;
+}
+.pro-sidebar-inner .pro-sidebar-layout .active {
+  background-image: linear-gradient(0deg, #ff0000 0%, #75000a 100%);
+}
+.logo {
+  padding: 20px;
+}
+
+@media only screen and (max-width: 720px) {
+  html {
+    overflow: hidden;
+  }
+}
+
