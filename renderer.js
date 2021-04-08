@@ -6,7 +6,7 @@
 // process.
 
 
-import Header from './Components/Header/Header'
+import Header from './Header'
 
 function App() {
   return (

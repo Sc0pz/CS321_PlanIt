@@ -22,7 +22,7 @@ save = (note) => {
 
       <div className='note-wrapper-single'>
       <input defaultValue={ note.heading } type='text' placeholder='Untitled' ref={(input) => { this.textInput = input }} onChange={(event)=>this.save(note) }/>
-      <textarea defaultValue={ note.value } ref={(input) => { this.textAreaInput = input}} onChange={()=>this.save(note) }/>
+      <textarea defaultValue={ note.value } placeholder="Enter your notes here" ref={(input) => { this.textAreaInput = input}} onChange={()=>this.save(note) }/>
       </div>
     )
   }
