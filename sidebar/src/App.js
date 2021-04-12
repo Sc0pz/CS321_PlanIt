@@ -45,6 +45,12 @@ class App extends Component {
 
   }
 
+  toggleSideBar = (menuCollapse) =>{
+    console.log("Toggle Side Bar test")
+    if(menuCollapse == true) 
+      menuCollapse = false
+    else menuCollapse = true
+  }
   render() {
 
     this.state.notes.sort((a, b) => {return b.id-a.id})
@@ -56,7 +62,7 @@ class App extends Component {
       </div>
       <div className='notes-wrapper'>
         <div className='list-notes-top'>
-          <ListNotes notes={this.state.notes} changeCurrentNote={this.changeCurrentNote} deletenote={this.deletenote}/>
+          <ListNotes notes={this.state.notes} changeCurrentNote={this.changeCurrentNote} deletenote={this.deletenote} toggleSideBar={this.toggleSideBar}/>
         </div>
         <div className='current-note'>
           {( this.state.currentNote !== null ) && ( <Note note={this.state.currentNote} savenote={this.saveNote}/> )}
