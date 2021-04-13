@@ -1,5 +1,3 @@
-import Header from './Header'
-
 import React, { Component } from 'react';
 import Note from './Note'
 import ListNotes from './ListNotes'
