@@ -151,6 +151,7 @@ textarea{
   width: 95%;
   border: none;
   resize: none;
+  color: rgb(0, 0, 0);
   scroll-behavior: auto;
 }
 
