@@ -46,10 +46,8 @@ class App extends Component {
   }
 
   toggleSideBar = (menuCollapse) =>{
-    console.log("Toggle Side Bar test")
-    if(menuCollapse == true) 
-      menuCollapse = false
-    else menuCollapse = true
+    console.log("Toggling Bar")
+    menuCollapse = false
   }
   render() {
 

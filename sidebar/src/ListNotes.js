@@ -2,20 +2,17 @@ import React, {Component} from 'react'
 import { ProSidebar, Menu, MenuItem, SubMenu, SidebarHeader } from 'react-pro-sidebar';
 import 'react-pro-sidebar/dist/css/styles.css';
 import { FiHome, FiLogOut, FiArrowLeftCircle, FiArrowRightCircle } from "react-icons/fi";
+
 class ListNotes extends Component{
 
   
   render(){
-    const menuState = false
+    var menuState = false
     const {notes, changeCurrentNote, deletenote, toggleSideBar} = this.props
 return(
     <ProSidebar collapsed = {menuState}>
         <SidebarHeader>
-          <div className="logotext">
-            {/* small and big change using menucollapse state */}
-              <p>{menuState ? "No" : "Notes"}</p>
-            </div>
-            <div className="closemenu" onClick={toggleSideBar(menuState)}>
+            <div className="closemenu" onClick={() =>toggleSideBar(menuState)}>
                 {/* changing menu collapse icon on click */}
               {menuState ? (
                 <FiArrowRightCircle/>
@@ -23,6 +20,11 @@ return(
                 <FiArrowLeftCircle/>
               )}
             </div>
+          <div className="logotext">
+            {/* small and big change using menucollapse state */}
+              <p>{menuState ? "Pla" : "Plan\\t"}</p>
+            </div>
+            
         </SidebarHeader>
         <Menu>
           { notes.map((note) => (
