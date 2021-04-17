@@ -7,7 +7,7 @@ class ListNotes extends Component{
 
   render(){
 
-    const {notes, changeCurrentNote, deletenote} = this.props
+    const {addSub, subnotes, notes, changeCurrentNote, changeCurrentSubNote, deletesubnote, deletenote} = this.props
 return(
 
 
@@ -18,10 +18,27 @@ return(
           <MenuItem>
             <div className='list-item-top' key={ note.id }>
               <div>
-              <ul className="no-bullets">
+              <ul>
                 <li className='list-item' onClick={ () => changeCurrentNote(note) } >
                   {note.heading}
                 </li>
+                <SubMenu title="Notes">
+                  <div>
+                  <button className='add-sub-note' onClick={ () => addSub()}>+</button>
+                  </div>
+                  { subnotes.map((note) => (
+                    <div className='list-sub-item-top' key={note.id}>
+                    <div>
+                      <li className='list-sub-item' onClick={ () => changeCurrentSubNote(note)} >
+                        {note.heading}
+                      </li>
+                    </div>
+                    <div>
+                    <button className='delete-sub-note' onClick={ () => deletesubnote(note)}>x</button>
+                    </div>
+                    </div>
+                  ))}
+                </SubMenu>
               </ul>
               </div>
               <div>
